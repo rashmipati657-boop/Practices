@@ -1,79 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Collect — Demo Dashboard</title>
+<style>
+:root{--green:#087b5b;--deep:#075640;--mint:#e8f6f0;--bg:#f4f7f6;--ink:#172b26;--muted:#6d7d77;--line:#e3ebe7;--white:#fff;--amber:#fff3d8;--red:#fde9e7}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}
+.app{display:flex;min-height:100vh}.sidebar{width:238px;background:#073f32;color:#e7f5ef;padding:24px 15px;flex-shrink:0}.brand{display:flex;gap:10px;align-items:center;padding:2px 9px 28px}.logo{width:39px;height:39px;border-radius:12px;background:#d5f5e7;color:#075640;display:grid;place-items:center;font-size:21px}.brand strong{font-size:18px;letter-spacing:.2px}.brand small{display:block;color:#9fc8b9;font-size:11px;margin-top:3px}.navlabel{font-size:10px;letter-spacing:1.5px;color:#91b7a9;padding:10px 12px}.nav button{width:100%;display:flex;gap:12px;align-items:center;border:0;color:#c7ded5;background:transparent;text-align:left;padding:12px;border-radius:9px;margin:2px 0;font-size:13px}.nav button.active,.nav button:hover{background:#0d634b;color:white}.nav .ico{width:18px;text-align:center;font-size:16px}.sidebar-bottom{margin-top:40px;border-top:1px solid #236554;padding:18px 12px;color:#a9c9be;font-size:12px;line-height:1.7}.main{flex:1;min-width:0}.topbar{height:76px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:15px}.crumb{font-size:12px;color:var(--muted)}.topright{display:flex;align-items:center;gap:18px}.search{background:#f5f8f6;border:1px solid var(--line);border-radius:9px;padding:10px 12px;width:220px;font-size:12px}.avatar{width:35px;height:35px;border-radius:50%;background:#d9efe5;color:#075640;display:grid;place-items:center;font-weight:700;font-size:12px}.content{padding:29px 32px;max-width:1500px;margin:auto}.heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:23px}.eyebrow{color:var(--green);font-weight:700;font-size:11px;letter-spacing:1.4px;text-transform:uppercase}.heading h1{font-size:27px;margin:8px 0 6px;letter-spacing:-.6px}.sub{font-size:13px;color:var(--muted)}.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:11px 15px;border-radius:9px;font-size:12px;font-weight:650}.btn.primary{background:var(--green);border-color:var(--green);color:white}.btn.primary:hover{background:var(--deep)}.actions{display:flex;gap:9px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:18px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.stat-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:var(--mint);font-size:16px}.value{font-size:26px;font-weight:750;letter-spacing:-.6px;margin:15px 0 7px}.trend{font-size:11px;color:var(--green)}.trend span{color:var(--muted)}.panel{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}.panel-head{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}.panel-head h2{font-size:15px;margin:0 0 5px}.panel-head p{font-size:11px;color:var(--muted);margin:0}.textlink{border:0;background:none;color:var(--green);font-size:12px;font-weight:700}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{text-align:left;font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:#7a8983;background:#fbfcfb;padding:13px 20px}td{padding:15px 20px;border-top:1px solid #edf1ef;font-size:12px}td strong{font-size:12px}.person{display:flex;align-items:center;gap:10px}.person-icon{width:32px;height:32px;border-radius:10px;background:#e7f4ee;color:#12664d;display:grid;place-items:center;font-size:11px;font-weight:700}.muted{color:var(--muted);font-size:11px;margin-top:3px}.pill{display:inline-flex;padding:5px 8px;border-radius:20px;font-size:10px;font-weight:700}.paid{background:#e2f7eb;color:#16754b}.pending{background:#fff1d6;color:#95630a}.overdue{background:#fde8e6;color:#b83a35}.lower{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.barlist{padding:20px}.barrow{display:grid;grid-template-columns:105px 1fr 65px;gap:10px;align-items:center;margin:17px 0;font-size:11px}.barbg{height:8px;background:#edf3f0;border-radius:20px;overflow:hidden}.bar{height:100%;border-radius:20px;background:var(--green)}.barrow b{text-align:right;font-size:11px}.activity{padding:5px 20px 15px}.activity-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #edf1ef}.activity-item:last-child{border-bottom:0}.activity-dot{width:32px;height:32px;border-radius:10px;background:var(--mint);display:grid;place-items:center;flex-shrink:0}.activity-item strong{font-size:12px}.activity-item p{font-size:11px;color:var(--muted);margin:5px 0 0}.page{display:none}.page.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:22px}.field label{display:block;font-size:11px;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:12px;border:1px solid #dfe8e3;border-radius:8px;background:white;font-size:12px}.field.full{grid-column:1/-1}.formfooter{display:flex;justify-content:flex-end;gap:10px;padding:17px 22px;border-top:1px solid var(--line)}.filters{display:flex;gap:10px;align-items:center}.filters input,.filters select{border:1px solid var(--line);background:white;padding:10px 12px;border-radius:8px;font-size:11px}.notice{padding:13px 15px;background:#eaf6f0;color:#245d49;border-radius:9px;font-size:12px;margin-bottom:17px;display:none}.empty{padding:35px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:1000px){.sidebar{width:200px}.content{padding:22px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.lower{grid-template-columns:1fr}.search{width:150px}}
+@media(max-width:650px){.app{display:block}.sidebar{width:100%;padding:12px}.brand{padding:4px 8px 12px}.navlabel,.sidebar-bottom{display:none}.nav{display:flex;overflow:auto;gap:4px}.nav button{width:auto;white-space:nowrap;padding:9px}.topbar{height:58px;padding:0 15px}.topright{gap:9px}.search{width:130px}.content{padding:20px 14px}.heading{display:block}.heading .actions{margin-top:15px}.heading h1{font-size:23px}.stats{gap:10px}.stat{padding:13px}.value{font-size:21px}.stat-top{font-size:11px}.stat-icon{width:29px;height:29px}.formgrid{grid-template-columns:1fr;padding:16px}.field.full{grid-column:auto}.panel-head{padding:15px}.barrow{grid-template-columns:85px 1fr 52px}.tablewrap table{min-width:700px}}
+</style></head>
 <body>
-    <table border="black">
-        <caption>A test table with merged cells</caption>
-    <thead>
-        <tr>
-            <th rowspan="2">
-
-            </th>
-        
-        
-            <th colspan="2">
-                Average
-                <th rowspan="2">
-                Red eyes
-            </th>
-            </th>
-            
-           <tr> 
-            <th>
-                Height 
-            </th>
-            
-            
-            <th>
-                weight
-            </th>
-            </tr>
-            
-            
-            </tr>
-    </thead> 
-        <tbody>
-            <tr>
-                 <td>Males</td>
-                  <td>
-                    1.9
-                </td>
-                <td>
-                    0.003
-                </td>
-                <td>
-                    40%
-                </td>
-                 
-            </tr>
-            <tr>
-                <td>Females</td>
-                <td>
-                    1.7
-                </td>
-                <td>
-                    0.002
-                </td>
-                <td>
-                    43%
-                </td>
-            </tr>
-            <tr>
-                <!-- <td>
-                    1.9
-                </td>
-                <td>
-                    0.003
-                </td>
-                <td>
-                    40%
-                </td> -->
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">₹</div><div><strong>Premium Collect</strong><small>INSURANCE • FINANCE</small></div></div>
+ <div class="navlabel">WORKSPACE</div>
+ <nav class="nav">
+  <button class="active" data-page="dashboard"><span class="ico">▦</span> Overview</button>
+  <button data-page="customers"><span class="ico">♙</span> Customers</button>
+  <button data-page="policies"><span class="ico">▤</span> Insurance Policies</button>
+  <button data-page="payments"><span class="ico">₹</span> Premium Payments</button>
+  <button data-page="reports"><span class="ico">▥</span> Reports & Analytics</button>
+ </nav>
+ <div class="navlabel" style="margin-top:24px">MANAGEMENT</div>
+ <nav class="nav"><button data-page="settings"><span class="ico">⚙</span> Settings</button></nav>
+ <div class="sidebar-bottom">● System operational<br>Demo workspace · v1.0<br><br>Premium collection made simpler.</div>
+</aside>
+<main class="main">
+ <header class="topbar"><div class="crumb">Workspace / <strong id="crumb">Overview</strong></div><div class="topright"><input class="search" id="globalSearch" placeholder="⌕  Search customers..." aria-label="Search customers"><span style="font-size:18px">♧</span><div class="avatar">RP</div></div></header>
+ <div class="content">
+  <section class="page active" id="dashboard">
+   <div class="heading"><div><div class="eyebrow">MONDAY, 22 OCTOBER 2026</div><h1>Good evening, Admin 👋</h1><div class="sub">Here’s what’s happening with your premium collections today.</div></div><div class="actions"><button class="btn" onclick="go('payments')">＋ Record payment</button><button class="btn primary" onclick="go('customers')">＋ Add customer</button></div></div>
+   <div class="stats">
+    <div class="stat"><div class="stat-top">Total premium collected <span class="stat-icon">₹</span></div><div class="value" id="collected">₹8,42,500</div><div class="trend">↗ 12.8% <span>vs last month</span></div></div>
+    <div class="stat"><div class="stat-top">Pending premiums <span class="stat-icon">◷</span></div><div class="value">₹1,24,800</div><div class="trend" style="color:#ad790f">18 payments <span>awaiting collection</span></div></div>
+    <div class="stat"><div class="stat-top">Active policies <span class="stat-icon">▤</span></div><div class="value" id="policyCount">248</div><div class="trend">↗ 8 new <span>this month</span></div></div>
+    <div class="stat"><div class="stat-top">Overdue payments <span class="stat-icon">!</span></div><div class="value">07</div><div class="trend" style="color:#b83a35">Needs follow-up <span>this week</span></div></div>
+   </div>
+   <div class="panel"><div class="panel-head"><div><h2>Recent premium payments</h2><p>Track the latest customer transactions</p></div><button class="textlink" onclick="go('payments')">View all payments →</button></div><div class="tablewrap"><table><thead><tr><th>Customer</th><th>Policy ID</th><th>Due date</th><th>Premium amount</th><th>Status</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+   <div class="lower"><div class="panel"><div class="panel-head"><div><h2>Collection overview</h2><p>Monthly collection progress (demo data)</p></div><select aria-label="Collection period"><option>Last 6 months</option><option>This year</option></select></div><div class="barlist"><div class="barrow"><span>May</span><div class="barbg"><div class="bar" style="width:52%"></div></div><b>₹4.2L</b></div><div class="barrow"><span>June</span><div class="barbg"><div class="bar" style="width:68%"></div></div><b>₹5.5L</b></div><div class="barrow"><span>July</span><div class="barbg"><div class="bar" style="width:60%"></div></div><b>₹4.9L</b></div><div class="barrow"><span>August</span><div class="barbg"><div class="bar" style="width:79%"></div></div><b>₹6.4L</b></div><div class="barrow"><span>September</span><div class="barbg"><div class="bar" style="width:88%"></div></div><b>₹7.1L</b></div><div class="barrow"><span>October</span><div class="barbg"><div class="bar" style="width:96%"></div></div><b>₹8.4L</b></div></div></div>
+    <div class="panel"><div class="panel-head"><div><h2>Recent activity</h2><p>Latest updates in your workspace</p></div></div><div class="activity"><div class="activity-item"><div class="activity-dot">✓</div><div><strong>Premium payment received</strong><p>Priya Das · ₹12,500 · 10 min ago</p></div></div><div class="activity-item"><div class="activity-dot">♙</div><div><strong>New customer added</strong><p>Demo customer profile created · 1 hr ago</p></div></div><div class="activity-item"><div class="activity-dot">◷</div><div><strong>Payment reminder due</strong><p>3 policies need follow-up today</p></div></div></div></div></div>
+  </section>
+  <section class="page" id="customers">
+   <div class="heading"><div><div class="eyebrow">CUSTOMER DIRECTORY</div><h1>Customers</h1><div class="sub">Manage customer details and insurance relationships.</div></div><div class="actions"><button class="btn primary" onclick="document.getElementById('customerFormPanel').scrollIntoView({behavior:'smooth'})">＋ Add customer</button></div></div>
+   <div id="customerNotice" class="notice">Customer added to this demo session.</div>
+   <div class="panel"><div class="panel-head"><div><h2>All customers</h2><p id="customerTotal">Registered policyholders</p></div><div class="filters"><input id="customerSearch" placeholder="Search name or email"></div></div><div class="tablewrap"><table><thead><tr><th>Customer</th><th>Phone</th><th>Email</th><th>Policies</th><th>Customer status</th></tr></thead><tbody id="customerRows"></tbody></table></div></div>
+   <div class="panel" id="customerFormPanel"><div class="panel-head"><div><h2>Add a customer</h2><p>Enter basic policyholder information</p></div></div><form id="customerForm"><div class="formgrid"><div class="field"><label>Full name *</label><input name="name" required placeholder="e.g. Ananya Sharma"></div><div class="field"><label>Phone number *</label><input name="phone" required placeholder="+91 98765 43210"></div><div class="field"><label>Email address</label><input name="email" type="email" placeholder="name@example.com"></div><div class="field"><label>Customer type</label><select name="type"><option>Individual</option><option>Business</option></select></div></div><div class="formfooter"><button type="reset" class="btn">Clear</button><button class="btn primary" type="submit">Save customer</button></div></form></div>
+  </section>
+  <section class="page" id="policies">
+   <div class="heading"><div><div class="eyebrow">POLICY MANAGEMENT</div><h1>Insurance policies</h1><div class="sub">View policy types, premium amounts and renewal dates.</div></div><button class="btn primary" onclick="alert('Demo interface: connect a backend to create permanent policies.')">＋ Add policy</button></div>
+   <div class="stats"><div class="stat"><div class="stat-top">Active policies</div><div class="value">248</div><div class="trend">In force</div></div><div class="stat"><div class="stat-top">Life insurance</div><div class="value">126</div><div class="trend">51% of policies</div></div><div class="stat"><div class="stat-top">Health insurance</div><div class="value">82</div><div class="trend">33% of policies</div></div><div class="stat"><div class="stat-top">Motor insurance</div><div class="value">40</div><div class="trend">16% of policies</div></div></div>
+   <div class="panel"><div class="panel-head"><div><h2>Policy register</h2><p>Example policy data</p></div><select><option>All policy types</option><option>Life</option><option>Health</option><option>Motor</option></select></div><div class="tablewrap"><table><thead><tr><th>Policy ID</th><th>Policyholder</th><th>Policy type</th><th>Annual premium</th><th>Renewal date</th><th>Status</th></tr></thead><tbody><tr><td><strong>LIC-10241</strong></td><td>Priya Das</td><td>Life</td><td>₹12,500</td><td>28 Oct 2026</td><td><span class="pill paid">Active</span></td></tr><tr><td><strong>HLT-10242</strong></td><td>Rahul Mohanty</td><td>Health</td><td>₹18,000</td><td>02 Nov 2026</td><td><span class="pill paid">Active</span></td></tr><tr><td><strong>MTR-10243</strong></td><td>Neha Sahu</td><td>Motor</td><td>₹7,800</td><td>10 Nov 2026</td><td><span class="pill pending">Renewal due</span></td></tr><tr><td><strong>LIC-10244</strong></td><td>Amit Patnaik</td><td>Life</td><td>₹15,200</td><td>18 Nov 2026</td><td><span class="pill paid">Active</span></td></tr></tbody></table></div></div>
+  </section>
+  <section class="page" id="payments">
+   <div class="heading"><div><div class="eyebrow">COLLECTION CENTRE</div><h1>Premium payments</h1><div class="sub">Record premium receipts and track payment status.</div></div><button class="btn primary" onclick="document.getElementById('paymentFormPanel').scrollIntoView({behavior:'smooth'})">＋ Record payment</button></div>
+   <div id="paymentNotice" class="notice">Payment recorded in this demo session.</div>
+   <div class="stats"><div class="stat"><div class="stat-top">Collected today</div><div class="value">₹42,500</div><div class="trend">Demo total</div></div><div class="stat"><div class="stat-top">Pending</div><div class="value">18</div><div class="trend">Awaiting payment</div></div><div class="stat"><div class="stat-top">Overdue</div><div class="value">07</div><div class="trend" style="color:#b83a35">Follow-up required</div></div><div class="stat"><div class="stat-top">Success rate</div><div class="value">92.4%</div><div class="trend">Demo metric</div></div></div>
+   <div class="panel"><div class="panel-head"><div><h2>Payment history</h2><p>Recent transactions and outstanding premiums</p></div><div class="filters"><select id="statusFilter"><option value="All">All statuses</option><option>Paid</option><option>Pending</option><option>Overdue</option></select></div></div><div class="tablewrap"><table><thead><tr><th>Customer</th><th>Policy ID</th><th>Due date</th><th>Amount</th><th>Payment method</th><th>Status</th></tr></thead><tbody id="paymentRows"></tbody></table></div></div>
+   <div class="panel" id="paymentFormPanel"><div class="panel-head"><div><h2>Record a payment</h2><p>Demo only — no real payment will be processed.</p></div></div><form id="paymentForm"><div class="formgrid"><div class="field"><label>Customer name *</label><input name="customer" required placeholder="Customer name"></div><div class="field"><label>Policy ID *</label><input name="policy" required placeholder="e.g. LIC-10245"></div><div class="field"><label>Premium amount (₹) *</label><input name="amount" type="number" min="1" required placeholder="12500"></div><div class="field"><label>Payment method</label><select name="method"><option>UPI</option><option>Bank transfer</option><option>Card</option><option>Cash</option></select></div><div class="field"><label>Payment date</label><input name="date" type="date" value="2026-10-22"></div><div class="field"><label>Status</label><select name="status"><option>Paid</option><option>Pending</option></select></div></div><div class="formfooter"><button type="reset" class="btn">Clear</button><button type="submit" class="btn primary">Save payment</button></div></form></div>
+  </section>
+  <section class="page" id="reports">
+   <div class="heading"><div><div class="eyebrow">BUSINESS INSIGHTS</div><h1>Reports & analytics</h1><div class="sub">Monitor collection performance using sample data.</div></div><button class="btn" onclick="window.print()">⤓ Print report</button></div>
+   <div class="stats"><div class="stat"><div class="stat-top">Total collected</div><div class="value">₹8.42L</div><div class="trend">This month</div></div><div class="stat"><div class="stat-top">Outstanding</div><div class="value">₹1.24L</div><div class="trend">Needs collection</div></div><div class="stat"><div class="stat-top">Collection rate</div><div class="value">87.1%</div><div class="trend">Monthly estimate</div></div><div class="stat"><div class="stat-top">Customers</div><div class="value" id="reportCustomers">4</div><div class="trend">In demo records</div></div></div>
+   <div class="panel"><div class="panel-head"><div><h2>Monthly premium collections</h2><p>Illustrative data only</p></div></div><div class="barlist"><div class="barrow"><span>May 2026</span><div class="barbg"><div class="bar" style="width:50%"></div></div><b>₹4.2L</b></div><div class="barrow"><span>June 2026</span><div class="barbg"><div class="bar" style="width:65%"></div></div><b>₹5.5L</b></div><div class="barrow"><span>July 2026</span><div class="barbg"><div class="bar" style="width:58%"></div></div><b>₹4.9L</b></div><div class="barrow"><span>Aug 2026</span><div class="barbg"><div class="bar" style="width:76%"></div></div><b>₹6.4L</b></div><div class="barrow"><span>Sep 2026</span><div class="barbg"><div class="bar" style="width:84%"></div></div><b>₹7.1L</b></div><div class="barrow"><span>Oct 2026</span><div class="barbg"><div class="bar" style="width:100%"></div></div><b>₹8.4L</b></div></div></div>
+  </section>
+  <section class="page" id="settings">
+   <div class="heading"><div><div class="eyebrow">WORKSPACE PREFERENCES</div><h1>Settings</h1><div class="sub">Basic demo workspace information.</div></div></div>
+   <div class="panel"><div class="panel-head"><div><h2>Organisation profile</h2><p>Sample information for the prototype</p></div></div><div class="formgrid"><div class="field"><label>Platform name</label><input value="Premium Collect"></div><div class="field"><label>Organisation</label><input value="Demo Insurance Services"></div><div class="field"><label>Support email</label><input value="support@example.com"></div><div class="field"><label>Currency</label><select><option>Indian Rupee (₹)</option></select></div></div><div class="formfooter"><button class="btn primary" onclick="alert('Settings are visual-only in this prototype.')">Save preferences</button></div></div>
+   <div class="panel"><div class="panel-head"><div><h2>About this demo</h2><p>This prototype uses sample data stored only in the current browser session.</p></div></div><div style="padding:20px;color:var(--muted);font-size:12px;line-height:1.8">No real insurance policy, bank account, or payment gateway is connected. To use this for real customers, add secure authentication, a backend, a database, validation, access controls and an approved payment provider.</div></div>
+  </section>
+ </div>
+</main></div>
+<script>
+const payments=[
+{name:'Priya Das',initial:'PD',email:'priya.das@example.com',phone:'+91 98765 12001',policy:'LIC-10241',due:'28 Oct 2026',amount:12500,method:'UPI',status:'Paid'},
+{name:'Rahul Mohanty',initial:'RM',email:'rahul.m@example.com',phone:'+91 98765 12002',policy:'HLT-10242',due:'02 Nov 2026',amount:18000,method:'Bank transfer',status:'Pending'},
+{name:'Neha Sahu',initial:'NS',email:'neha.s@example.com',phone:'+91 98765 12003',policy:'MTR-10243',due:'10 Oct 2026',amount:7800,method:'Card',status:'Overdue'},
+{name:'Amit Patnaik',initial:'AP',email:'amit.p@example.com',phone:'+91 98765 12004',policy:'LIC-10244',due:'18 Nov 2026',amount:15200,method:'UPI',status:'Paid'}
+];
+const customers=payments.map(p=>({name:p.name,phone:p.phone,email:p.email,type:'Individual',policies:1,status:'Active'}));
+const rupee=n=>'₹'+Number(n).toLocaleString('en-IN');
+const pill=s=>`<span class="pill ${s.toLowerCase()}">${s}</span>`;
+function paymentRows(target, filtered=payments){document.getElementById(target).innerHTML=filtered.map(p=>`<tr><td><div class="person"><div class="person-icon">${p.initial||p.name.split(' ').map(x=>x[0]).join('').slice(0,2)}</div><div><strong>${p.name}</strong><div class="muted">${p.email||''}</div></div></div></td><td>${p.policy}</td><td>${p.due||p.date||'—'}</td><td><strong>${rupee(p.amount)}</strong></td>${target==='paymentRows'?`<td>${p.method||'—'}</td>`:''}<td>${pill(p.status)}</td></tr>`).join('')}
+function renderCustomers(filter=''){const list=customers.filter(c=>(c.name+' '+c.email+' '+c.phone).toLowerCase().includes(filter.toLowerCase()));document.getElementById('customerRows').innerHTML=list.map(c=>`<tr><td><div class="person"><div class="person-icon">${c.name.split(' ').map(x=>x[0]).join('').slice(0,2)}</div><div><strong>${c.name}</strong><div class="muted">${c.type}</div></div></div></td><td>${c.phone}</td><td>${c.email||'—'}</td><td>${c.policies}</td><td>${pill(c.status)}</td></tr>`).join('')||'<tr><td colspan="5" class="empty">No customers match your search.</td></tr>';document.getElementById('customerTotal').textContent=`${customers.length} registered policyholders`;document.getElementById('reportCustomers').textContent=customers.length}
+function renderPayments(){paymentRows('paymentRows',payments.filter(p=>document.getElementById('statusFilter').value==='All'||p.status===document.getElementById('statusFilter').value));}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));const label={dashboard:'Overview',customers:'Customers',policies:'Insurance Policies',payments:'Premium Payments',reports:'Reports & Analytics',settings:'Settings'};document.getElementById('crumb').textContent=label[id];if(id==='payments')renderPayments();if(id==='customers')renderCustomers();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.getElementById('customerForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);customers.push({name:f.get('name'),phone:f.get('phone'),email:f.get('email'),type:f.get('type'),policies:0,status:'Active'});renderCustomers();document.getElementById('customerNotice').style.display='block';e.target.reset()});
+document.getElementById('paymentForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);payments.unshift({name:f.get('customer'),initial:f.get('customer').split(' ').map(x=>x[0]).join('').slice(0,2),email:'',policy:f.get('policy'),due:f.get('date'),amount:Number(f.get('amount')),method:f.get('method'),status:f.get('status')});paymentRows('recentRows',payments.slice(0,5));renderPayments();document.getElementById('paymentNotice').style.display='block';e.target.reset()});
+document.getElementById('customerSearch').addEventListener('input',e=>renderCustomers(e.target.value));
+document.getElementById('statusFilter').addEventListener('change',renderPayments);
+document.getElementById('globalSearch').addEventListener('input',e=>{go('customers');document.getElementById('customerSearch').value=e.target.value;renderCustomers(e.target.value)});
+paymentRows('recentRows',payments.slice(0,4));renderPayments();renderCustomers();
+</script></body></html>'''
+<script src="index.js"></script>
+path=Path("/mnt/data/premium_collect_demo.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path} ({path.stat().st_size} bytes)")
